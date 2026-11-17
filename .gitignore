@@ -31,6 +31,9 @@ wheels/
 # Streamlit run cache
 .streamlit/
 
+# Push helper
+push_to_github.bat
+
 # OS specific
 Thumbs.db
 ehthumbs.db
