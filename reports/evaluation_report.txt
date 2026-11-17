@@ -1,0 +1,46 @@
+======================================================================
+INTELLIGENT PHISHING URL DETECTION SYSTEM - EVALUATION REPORT
+======================================================================
+
+Selected Best Model: Gradient Boosting
+Selection Criterion: Highest F1-Score on held-out stratified test set
+Dataset Records: 25000
+Test Split Size: 5000
+
+----------------------------------------------------------------------
+1. MODEL COMPARISON (TEST SET)
+----------------------------------------------------------------------
+Model                     Accuracy   Precision  Recall     F1-Score   ROC-AUC   
+---------------------------------------------------------------------------
+Logistic Regression       0.9950     0.9984     0.9936     0.9960     0.9997    
+Decision Tree             0.9976     0.9975     0.9987     0.9981     0.9985    
+Random Forest             0.9978     0.9968     0.9997     0.9983     1.0       
+Gradient Boosting         0.9986     0.9981     0.9997     0.9989     1.0       
+
+----------------------------------------------------------------------
+2. CLASSIFICATION REPORT FOR SELECTED MODEL (Gradient Boosting)
+----------------------------------------------------------------------
+                precision    recall  f1-score   support
+
+Legitimate (0)       1.00      1.00      1.00      1853
+  Phishing (1)       1.00      1.00      1.00      3147
+
+      accuracy                           1.00      5000
+     macro avg       1.00      1.00      1.00      5000
+  weighted avg       1.00      1.00      1.00      5000
+
+
+Confusion Matrix Breakdown:
+  True Negatives (TN - Correct Legitimate):  1847
+  False Positives (FP - False Alarm):       6
+  False Negatives (FN - Missed Phishing):   1
+  True Positives (TP - Caught Phishing):     3146
+
+======================================================================
+SECURITY METRIC DISCUSSION: RECALL VS PRECISION TRADE-OFF
+======================================================================
+In phishing detection, Recall is of critical importance because a False Negative
+(failing to flag a phishing URL) exposes users directly to credential theft, fraud,
+or malware infection. Conversely, a False Positive disrupts user workflow with a false alarm.
+Therefore, models are evaluated primarily on F1-Score to balance both, ensuring high
+threat detection while maintaining acceptable precision.
